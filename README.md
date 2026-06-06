@@ -71,6 +71,9 @@ Execution path:
 
 - Both runs used Localpager's `scripts/localpager-classifier`.
 - That wrapper invoked `localpager-agent` with `--final-schema`.
+- `localpager-agent` package: `@osolmaz/localpager-agent` version `0.1.0`.
+- `localpager-agent` is Pi plus Localpager-specific setup, not a separate
+  inference engine.
 - `localpager-agent` launched Pi and required the `final_json` tool.
 - No bash/repo-shell tool was available to the model in these runs.
 

@@ -138,6 +138,62 @@ Pi thinking level, but it does not record the Pi package version. The local npm
 cache contained `@earendil-works/pi-coding-agent` versions `0.74.1` and `0.78.1`
 at inspection time.
 
+## Localpager Agent Layer
+
+The model was not called directly from a standalone HTTP script. The classifier
+ran through Localpager's `localpager-agent` wrapper.
+
+`localpager-agent` is not a separate model runtime or inference engine. It is
+Pi plus Localpager-specific setup:
+
+- writes a temporary Pi provider config for the local OpenAI-compatible endpoint
+- points Pi at the selected local model id
+- optionally installs Localpager extensions such as `final_json` / final schema
+- optionally wires repo-shell tools when requested
+- launches Pi with the generated config and session directory
+
+For these runs, only the final-schema path was used. Repo-shell/bash was not
+enabled.
+
+- Package: `@osolmaz/localpager-agent`
+- Package version: `0.1.0`
+- Package path: `/home/bob/repos/localpager/localpager-agent`
+- Localpager commit:
+  `6cad649c665003a62a6397e32701ab5d4711c463`
+- Entry script:
+  `/home/bob/repos/localpager/scripts/localpager-classifier`
+- Agent launch command used by that script:
+  `npm --prefix /home/bob/repos/localpager/localpager-agent run -s localpager-agent`
+
+The wrapper rendered:
+
+- GitHub context for `openclaw/openclaw#84509`
+- Prompt template:
+  `/home/bob/repos/localpager/examples/profiles/openclaw-routing-v8.prompt.md`
+- Topic taxonomy:
+  `/home/bob/repos/localpager/examples/profiles/openclaw-routing-topics.json`
+- Final schema:
+  `/home/bob/repos/localpager/schemas/classification.schema.json`
+
+The `localpager-agent` invocation included:
+
+```bash
+--model gemma-4-12b-it-qat-q4_0
+--base-url http://127.0.0.1:18194/v1
+--final-schema <rendered schema path>
+--tools final_json
+--max-tokens 1024
+--timeout-ms 10000
+```
+
+The raw Pi session metadata records `thinkingLevel: "off"` for both saved
+sessions. The long reasoning in the original run therefore came from the
+server-side Gemma/llama.cpp reasoning mode, not from Pi or localpager-agent
+requesting a high thinking level.
+
+No bash or repo-shell tool was exposed in these classifier runs. The only model
+tool was `final_json`.
+
 ## Session Files
 
 - Original default-reasoning JSONL:

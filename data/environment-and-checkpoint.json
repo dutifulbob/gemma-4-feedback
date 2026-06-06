@@ -66,6 +66,30 @@
   },
   "client_harness": {
     "classifier": "localpager-agent via scripts/localpager-classifier",
+    "localpager_agent": {
+      "package": "@osolmaz/localpager-agent",
+      "version": "0.1.0",
+      "description": "Pi plus Localpager-specific setup; not a separate inference engine.",
+      "adds_to_pi": [
+        "temporary Pi provider config for the local OpenAI-compatible endpoint",
+        "selected local model id",
+        "final_schema/final_json extension when requested",
+        "optional reposhell tools when requested",
+        "managed session directory"
+      ],
+      "path": "/home/bob/repos/localpager/localpager-agent",
+      "launch_command": "npm --prefix /home/bob/repos/localpager/localpager-agent run -s localpager-agent",
+      "entry_script": "/home/bob/repos/localpager/scripts/localpager-classifier",
+      "model": "gemma-4-12b-it-qat-q4_0",
+      "base_url": "http://127.0.0.1:18194/v1",
+      "final_schema": "/home/bob/repos/localpager/schemas/classification.schema.json",
+      "prompt_template": "/home/bob/repos/localpager/examples/profiles/openclaw-routing-v8.prompt.md",
+      "topic_taxonomy": "/home/bob/repos/localpager/examples/profiles/openclaw-routing-topics.json",
+      "tools": ["final_json"],
+      "max_tokens": 1024,
+      "timeout_ms": 10000,
+      "pi_thinking_level_recorded_in_sessions": "off"
+    },
     "localpager_commit": "6cad649c665003a62a6397e32701ab5d4711c463",
     "localpi_commit": "745d444ec2f9aa1fce34d759f002fe6fd24f1f54",
     "node": "v22.22.0",
