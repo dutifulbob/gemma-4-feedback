@@ -123,6 +123,8 @@ After the low-thinking test, the live server was restored to:
 ## Client And Harness
 
 - Classifier harness: `localpager-agent` via `scripts/localpager-classifier`
+- Full reproduction commands:
+  [`reproduction.md`](reproduction.md)
 - Localpager checkout commit at inspection time:
   `6cad649c665003a62a6397e32701ab5d4711c463`
 - Localpi checkout commit after adding bounded thinking:

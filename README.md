@@ -16,9 +16,11 @@ budget. That run was much faster, but the label quality regressed.
 - [`analysis/generation-feedback.md`](analysis/generation-feedback.md) - what was not sensible about the generation and why it should have been shorter.
 - [`analysis/low-thinking-comparison.md`](analysis/low-thinking-comparison.md) - comparison of the low-thinking run against the original run.
 - [`analysis/environment-and-checkpoint.md`](analysis/environment-and-checkpoint.md) - inference engine, checkpoint, runtime, and hardware details.
+- [`analysis/reproduction.md`](analysis/reproduction.md) - exact Localpager/localpager-agent commands and reproduction steps.
 - [`data/run-summary.json`](data/run-summary.json) - compact run metadata and timing numbers.
 - [`data/low-thinking-comparison.json`](data/low-thinking-comparison.json) - machine-readable comparison summary.
 - [`data/environment-and-checkpoint.json`](data/environment-and-checkpoint.json) - machine-readable engine and checkpoint metadata.
+- [`data/reproduction.json`](data/reproduction.json) - machine-readable reproduction metadata.
 
 ## Short Summary
 
@@ -64,6 +66,13 @@ Engine and checkpoint:
 - File: `gemma-4-12b-it-qat-q4_0.gguf`
 - SHA-256: `faff1a63667fac17ac5e777f47114688fcefea96e220e211aaa8d62c2c4561f1`
 - Served context: 32,768 tokens
+
+Execution path:
+
+- Both runs used Localpager's `scripts/localpager-classifier`.
+- That wrapper invoked `localpager-agent` with `--final-schema`.
+- `localpager-agent` launched Pi and required the `final_json` tool.
+- No bash/repo-shell tool was available to the model in these runs.
 
 ## Viewing The Session
 

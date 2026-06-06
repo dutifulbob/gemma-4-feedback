@@ -1,0 +1,50 @@
+{
+  "ran_in_localpager_agent": true,
+  "entrypoint": "/home/bob/repos/localpager/scripts/localpager-classifier",
+  "wrapper_behavior": [
+    "renders GitHub context",
+    "renders the OpenClaw routing prompt/profile and JSON schema",
+    "runs localpager-agent with --final-schema",
+    "launches Pi under localpager-agent",
+    "requires the final_json tool"
+  ],
+  "common_classifier_arguments": {
+    "target": "openclaw/openclaw#84509",
+    "model": "gemma-4-12b-it-qat-q4_0",
+    "base_url": "http://127.0.0.1:18194/v1",
+    "schema": "/home/bob/repos/localpager/schemas/classification.schema.json",
+    "prompt_template": "/home/bob/repos/localpager/examples/profiles/openclaw-routing-v8.prompt.md",
+    "topic_taxonomy": "/home/bob/repos/localpager/examples/profiles/openclaw-routing-topics.json",
+    "tools": "final_json",
+    "max_tokens": 1024,
+    "timeout_ms": 10000
+  },
+  "runs": {
+    "original_default_reasoning": {
+      "classifier_state_dir": "/tmp/localpager-classifier-reasoning-auto-repro",
+      "session_dir": "/tmp/localpager-classifier-reasoning-auto-repro/sessions/20260606T155733Z-174497",
+      "server_command": "/home/bob/.cache/localpager-benchmarks/llama.cpp-b9533-vulkan-arm64/llama-b9533/llama-server --host 127.0.0.1 --port 18194 --model /home/bob/.lmstudio/models/google/gemma-4-12B-it-qat-q4_0-gguf/gemma-4-12b-it-qat-q4_0.gguf --alias gemma-4-12b-it-qat-q4_0 --ctx-size 32768 --parallel 1 --gpu-layers 999 --metrics",
+      "observed": {
+        "end_to_end_seconds": 170,
+        "prompt_tokens": 6981,
+        "generated_tokens": 3370,
+        "topics_of_interest": ["acp", "tool_calling"]
+      }
+    },
+    "low_thinking_budget_128": {
+      "classifier_state_dir": "/tmp/localpager-classifier-gemma12b-low-reasoning",
+      "session_dir": "/tmp/localpager-classifier-gemma12b-low-reasoning/sessions/20260606T164219Z-228860",
+      "server_command": "llama-server --host 127.0.0.1 --port 18194 --model /home/bob/.lmstudio/models/google/gemma-4-12B-it-qat-q4_0-gguf/gemma-4-12b-it-qat-q4_0.gguf --alias gemma-4-12b-it-qat-q4_0 --ctx-size 32768 --parallel 1 --gpu-layers 999 --reasoning on --reasoning-budget 128 --reasoning-format deepseek --metrics",
+      "observed": {
+        "end_to_end_seconds": 22,
+        "prompt_tokens": 6978,
+        "generated_tokens": 231,
+        "topics_of_interest": ["reliability", "tool_calling"]
+      }
+    }
+  },
+  "local_checkouts": {
+    "localpager_commit": "6cad649c665003a62a6397e32701ab5d4711c463",
+    "localpi_commit": "745d444ec2f9aa1fce34d759f002fe6fd24f1f54"
+  }
+}

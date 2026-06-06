@@ -121,3 +121,6 @@ avoided this hidden long-deliberation path.
 See [`environment-and-checkpoint.md`](environment-and-checkpoint.md) for the
 exact inference engine version, checkpoint file, model hash, runtime command
 lines, and host details.
+
+See [`reproduction.md`](reproduction.md) for the exact Localpager/localpager-agent
+commands used to run and view the session.
