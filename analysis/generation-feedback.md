@@ -117,3 +117,7 @@ trace therefore did not come from Pi explicitly requesting thinking.
 The run used a local server mode where Gemma reasoning was still enabled by the
 server default. In later tests, starting the server with reasoning disabled
 avoided this hidden long-deliberation path.
+
+See [`environment-and-checkpoint.md`](environment-and-checkpoint.md) for the
+exact inference engine version, checkpoint file, model hash, runtime command
+lines, and host details.

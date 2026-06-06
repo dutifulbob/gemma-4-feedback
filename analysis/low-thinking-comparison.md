@@ -92,3 +92,7 @@ The best next setting to test would be either:
 
 The important behavior to preserve is: short output, one final tool call, and
 the title-first `acp` label.
+
+See [`environment-and-checkpoint.md`](environment-and-checkpoint.md) for the
+exact inference engine version, checkpoint file, model hash, runtime command
+lines, and host details.
