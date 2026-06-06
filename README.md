@@ -12,6 +12,7 @@ budget. That run was much faster, but the label quality regressed.
 
 - [`sessions/gemma-4-12b-localpager-reasoning-auto.jsonl`](sessions/gemma-4-12b-localpager-reasoning-auto.jsonl) - raw Pi JSONL session from the original unbounded/default-reasoning run.
 - [`sessions/gemma-4-12b-localpager-low-thinking.jsonl`](sessions/gemma-4-12b-localpager-low-thinking.jsonl) - raw Pi JSONL session from the bounded low-thinking run.
+- [`rendered-sessions/`](rendered-sessions/) - Markdown renderings of the raw Pi JSONL session files.
 - [`analysis/generation-feedback.md`](analysis/generation-feedback.md) - what was not sensible about the generation and why it should have been shorter.
 - [`analysis/low-thinking-comparison.md`](analysis/low-thinking-comparison.md) - comparison of the low-thinking run against the original run.
 - [`data/run-summary.json`](data/run-summary.json) - compact run metadata and timing numbers.
@@ -77,3 +78,13 @@ npx -y @earendil-works/pi-coding-agent@latest \
 ```
 
 The session file is plain JSONL. It can also be inspected with `jq`.
+
+## Rendering Markdown
+
+Regenerate a Markdown transcript from any Pi JSONL session with:
+
+```bash
+node scripts/render-session-jsonl.mjs \
+  sessions/gemma-4-12b-localpager-reasoning-auto.jsonl \
+  rendered-sessions/2026-06-06-openclaw-84509-gemma4-12b-default-reasoning.md
+```
