@@ -69,9 +69,11 @@ Engine and checkpoint:
 
 Execution path:
 
-- Both runs used Localpager's `scripts/localpager-classifier`.
+- Both runs used Localpager's
+  [`scripts/localpager-classifier`](https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/scripts/localpager-classifier).
 - That wrapper invoked `localpager-agent` with `--final-schema`.
-- `localpager-agent` package: `@osolmaz/localpager-agent` version `0.1.0`.
+- `localpager-agent` package:
+  [`@osolmaz/localpager-agent` version `0.1.0`](https://github.com/osolmaz/localpager/tree/6cad649c665003a62a6397e32701ab5d4711c463/localpager-agent).
 - `localpager-agent` is Pi plus Localpager-specific setup, not a separate
   inference engine.
 - `localpager-agent` launched Pi and required the `final_json` tool.

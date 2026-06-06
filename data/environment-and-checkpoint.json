@@ -78,6 +78,16 @@
         "managed session directory"
       ],
       "path": "/home/bob/repos/localpager/localpager-agent",
+      "links": {
+        "source_repo": "https://github.com/osolmaz/localpager",
+        "source_commit": "https://github.com/osolmaz/localpager/commit/6cad649c665003a62a6397e32701ab5d4711c463",
+        "package_dir": "https://github.com/osolmaz/localpager/tree/6cad649c665003a62a6397e32701ab5d4711c463/localpager-agent",
+        "package_manifest": "https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/localpager-agent/package.json",
+        "classifier_script": "https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/scripts/localpager-classifier",
+        "prompt_template": "https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/examples/profiles/openclaw-routing-v8.prompt.md",
+        "topic_taxonomy": "https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/examples/profiles/openclaw-routing-topics.json",
+        "final_schema": "https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/schemas/classification.schema.json"
+      },
       "launch_command": "npm --prefix /home/bob/repos/localpager/localpager-agent run -s localpager-agent",
       "entry_script": "/home/bob/repos/localpager/scripts/localpager-classifier",
       "model": "gemma-4-12b-it-qat-q4_0",

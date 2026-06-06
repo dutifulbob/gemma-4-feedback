@@ -155,13 +155,16 @@ Pi plus Localpager-specific setup:
 For these runs, only the final-schema path was used. Repo-shell/bash was not
 enabled.
 
-- Package: `@osolmaz/localpager-agent`
+- Package:
+  [`@osolmaz/localpager-agent`](https://github.com/osolmaz/localpager/tree/6cad649c665003a62a6397e32701ab5d4711c463/localpager-agent)
 - Package version: `0.1.0`
-- Package path: `/home/bob/repos/localpager/localpager-agent`
+- Package manifest:
+  [`localpager-agent/package.json`](https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/localpager-agent/package.json)
+- Local package path: `/home/bob/repos/localpager/localpager-agent`
 - Localpager commit:
-  `6cad649c665003a62a6397e32701ab5d4711c463`
+  [`6cad649c665003a62a6397e32701ab5d4711c463`](https://github.com/osolmaz/localpager/commit/6cad649c665003a62a6397e32701ab5d4711c463)
 - Entry script:
-  `/home/bob/repos/localpager/scripts/localpager-classifier`
+  [`scripts/localpager-classifier`](https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/scripts/localpager-classifier)
 - Agent launch command used by that script:
   `npm --prefix /home/bob/repos/localpager/localpager-agent run -s localpager-agent`
 
@@ -169,11 +172,11 @@ The wrapper rendered:
 
 - GitHub context for `openclaw/openclaw#84509`
 - Prompt template:
-  `/home/bob/repos/localpager/examples/profiles/openclaw-routing-v8.prompt.md`
+  [`examples/profiles/openclaw-routing-v8.prompt.md`](https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/examples/profiles/openclaw-routing-v8.prompt.md)
 - Topic taxonomy:
-  `/home/bob/repos/localpager/examples/profiles/openclaw-routing-topics.json`
+  [`examples/profiles/openclaw-routing-topics.json`](https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/examples/profiles/openclaw-routing-topics.json)
 - Final schema:
-  `/home/bob/repos/localpager/schemas/classification.schema.json`
+  [`schemas/classification.schema.json`](https://github.com/osolmaz/localpager/blob/6cad649c665003a62a6397e32701ab5d4711c463/schemas/classification.schema.json)
 
 The `localpager-agent` invocation included:
 
