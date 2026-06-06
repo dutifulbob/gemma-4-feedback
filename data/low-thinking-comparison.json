@@ -1,0 +1,44 @@
+{
+  "case": "openclaw/openclaw#84509 classification",
+  "runs": {
+    "original_default_reasoning": {
+      "session_file": "sessions/gemma-4-12b-localpager-reasoning-auto.jsonl",
+      "server_reasoning": "auto/default reasoning enabled",
+      "end_to_end_seconds": 170,
+      "prompt_tokens": 6981,
+      "generated_tokens": 3370,
+      "prompt_processing_seconds": 8.39,
+      "decode_seconds": 157.921,
+      "decode_tokens_per_second": 21.3398,
+      "reasoning_characters": 12083,
+      "reasoning_lines": 217,
+      "topics_of_interest": ["acp", "tool_calling"],
+      "assessment": "Defensible final labels, but excessive repeated reasoning."
+    },
+    "low_thinking": {
+      "session_file": "sessions/gemma-4-12b-localpager-low-thinking.jsonl",
+      "server_reasoning": "on with reasoning budget 128",
+      "end_to_end_seconds": 22,
+      "prompt_tokens": 6978,
+      "generated_tokens": 231,
+      "prompt_processing_seconds": 8.401,
+      "decode_seconds": 10.651,
+      "decode_tokens_per_second": 21.69,
+      "reasoning_characters": 400,
+      "reasoning_lines": 10,
+      "topics_of_interest": ["reliability", "tool_calling"],
+      "assessment": "Much faster, but missed acp and added less-specific reliability."
+    }
+  },
+  "comparison": {
+    "end_to_end_speedup": 7.73,
+    "generated_token_reduction_factor": 14.59,
+    "decode_time_reduction_factor": 14.83,
+    "quality_tradeoff": "The low-thinking budget prevented overthinking but likely cut reasoning short enough to degrade topic selection.",
+    "preferred_output_for_this_case": ["acp", "tool_calling"],
+    "next_settings_to_test": [
+      "reasoning off",
+      "reasoning on with budget 512"
+    ]
+  }
+}
