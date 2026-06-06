@@ -1,0 +1,50 @@
+{
+  "case": "openclaw/openclaw#84509 classification",
+  "session_file": "sessions/gemma-4-12b-localpager-reasoning-auto.jsonl",
+  "model": "gemma-4-12b-it-qat-q4_0",
+  "runtime": {
+    "client": "Pi via localpager-agent",
+    "server": "llama-server",
+    "endpoint": "local OpenAI-compatible API",
+    "pi_thinking_level": "off",
+    "server_reasoning_mode": "auto/default reasoning enabled"
+  },
+  "timing": {
+    "end_to_end_seconds": 170,
+    "prompt_processing_seconds": 8.39,
+    "decode_seconds": 157.921,
+    "decode_tokens_per_second": 21.3398
+  },
+  "tokens": {
+    "prompt_tokens": 6981,
+    "generated_tokens": 3370,
+    "total_tokens": 10351,
+    "reasoning_characters": 12083,
+    "reasoning_lines": 217
+  },
+  "trace_counts": {
+    "wait_lines": 11,
+    "decision_restatement_lines": 8,
+    "acp_mentions": 36,
+    "tool_calling_mentions": 34,
+    "reliability_mentions": 13,
+    "chat_integrations_mentions": 13
+  },
+  "final_output": {
+    "topics_of_interest": ["acp", "tool_calling"],
+    "description": "Fixes a bug in the ACP projector where pre-tool text was lost in `final_only` delivery mode by preserving accumulated state across intermediate `done` events.",
+    "caveats": [
+      "The provided GitHub context is truncated, but the relevant logic for the ACP projector and the fix for pre-tool text preservation is clearly described in the summary and diff sections."
+    ]
+  },
+  "assessment": {
+    "final_answer_quality": "reasonable",
+    "main_issue": "The generation spent thousands of tokens repeatedly re-evaluating a direct classification decision before calling the final JSON tool.",
+    "expected_shorter_path": [
+      "Title evidence supports acp.",
+      "Prompt tie-breaker maps pre-tool text preservation to tool_calling.",
+      "Downstream chat surfaces and generic reliability are less specific.",
+      "Call final_json."
+    ]
+  }
+}
